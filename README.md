@@ -1,4 +1,4 @@
-# SITE MAP OF THE PROJECT
+# PROJECT STRUCTURE
 
 ## applications
 
