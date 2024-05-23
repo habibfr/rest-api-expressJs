@@ -1,0 +1,15 @@
+import cookieParser from "cookie-parser";
+import express from "express";
+import "dotenv/config";
+import { errorMiddleware } from "../middlewares/error-middleware.js";
+import { privateRouts } from "../routes/private-routs.js";
+import { publicRouts } from "../routes/public-routs.js";
+const SECREET_KEY_COOKIE = process.env.SECREET_KEY_COOKIE;
+const application = express();
+application.use(express.json());
+application.use(express.urlencoded({ extended: true }));
+application.use(cookieParser(SECREET_KEY_COOKIE));
+application.use(publicRouts);
+application.use(privateRouts);
+application.use(errorMiddleware);
+export default application;
