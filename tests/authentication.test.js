@@ -32,7 +32,7 @@ describe("API /v1/auth", () => {
     expect(response.body.message).toBe(
       "email with audiaalli@gmail.com alredy use, please use another email"
     );
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(401);
   });
   it("shoud be reject when register request does not valid", async () => {
     const response = await supertest(application).post("/v1/auth").send({
@@ -121,6 +121,6 @@ describe("API /v1/auth", () => {
       password: "wrong_password",
     });
     expect(response.body.message).toBe("email or password wrong");
-    expect(response.status).toBe(400);
+    expect(response.status).toBe(401);
   });
 });
