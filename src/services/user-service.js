@@ -6,6 +6,13 @@ import AddressValidator from "../validations/address-validation.js";
 import ZodValidator from "../validations/validator.js";
 
 export default class UserService {
+  /**
+   * method create address merupakan method yang digunakan untuk membuat data address berdasarkan
+   * 
+   * @param { Object } user data user
+   * @param { Object } createAddressReq sebuah object request body yang mmeuat data-data yang dibutuhkan untuk memuad address
+   * @returns Pomise<Object>
+   */
   static async createAddress(user, createAddressReq) {
     // validate request
     const createAddressValidReq = ZodValidator.validate(

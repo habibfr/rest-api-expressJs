@@ -2,7 +2,6 @@ import AuthenticationService from "../services/authentication-service.js";
 import ProductService from "../services/product-service.js";
 import TransactionService from "../services/transaction-service.js";
 import UserService from "../services/user-service.js";
-
 export default class UserController {
   static async register(request, response, nextFunction) {
     try {

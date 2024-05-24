@@ -1,0 +1,17 @@
+{
+  "opts": {
+    "template": "node_modules/better-docs"
+  },
+  "source": {
+    "include": [
+      "./src/services",
+      "./src/errors",
+      "./src/middlewares",
+      "./src/routes",
+      "./src/utils",
+      "./src/validations",
+      "./src/server.js"
+    ],
+    "includePateren": ".+\\.js(doc|x)?$"
+  }
+}
