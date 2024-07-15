@@ -10,7 +10,7 @@ export default class TransactionService {
    *
    * @param { Object } user object user
    * @param { Object } transactionRequest object request body yang memuat data-data dari transaksi
-   * @returns Promise<Object> 
+   * @returns Promise<Object>
    */
   static async create(user, transactionRequest) {
     //validasi request
@@ -26,7 +26,7 @@ export default class TransactionService {
           where: {
             UserId: user.id,
           },
-          attributes: ["country", "province", "city", "vilage"],
+          attributes: ["country", "province", "city", "village"],
         },
         { transaction: tr }
       );
@@ -57,7 +57,7 @@ export default class TransactionService {
           country: address.toJSON().country,
           province: address.toJSON().province,
           city: address.toJSON().city,
-          vilage: address.toJSON().vilage,
+          village: address.toJSON().village,
         },
         { transaction: tr }
       );
@@ -66,11 +66,12 @@ export default class TransactionService {
   }
   /**
    * method unutk mengambil semua data transaksi
-   * 
+   *
    * @returns Promise<Object>
    */
   static async findAllTransaction() {
     return await connection.transaction(async (tr) => {
+      console.log(tr);
       return await Transaction.findAll({}, { transaction: tr });
     });
   }

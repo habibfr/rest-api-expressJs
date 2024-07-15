@@ -15,12 +15,14 @@ const authenticationMiddleware = async (request, response, nextFunction) => {
   try {
     // mengambil header dengan key X-API-TOKEN
     const token = request.get("X-API-TOKEN");
+
+    // console.log("token :" + token);
     // jika token null/undifined maka akan melakukan throw exception
     if (!token) {
       response.status(401).json({ message: "Token error" });
       throw new AuthenticationTokenException("Token error", 401);
     }
-    // jiaka tokennya ada maka akan melakukan query ke tabel user berdasarkan token 
+    // jiaka tokennya ada maka akan melakukan query ke tabel user berdasarkan token
     const user = await Users.findOne({
       where: { token },
     });

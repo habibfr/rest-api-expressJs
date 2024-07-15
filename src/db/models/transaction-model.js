@@ -39,7 +39,7 @@ Transaction.init(
       type: DataTypes.STRING(100),
       allowNull: false
     },
-    vilage: {
+    village: {
       type: DataTypes.STRING(100),
       allowNull: false
     }
@@ -47,7 +47,7 @@ Transaction.init(
   {
     sequelize: connection,
     tableName: "transactions",
-    underscored: true,
+    // underscored: true,
     indexes: [
       {
         fields: ["buyer"],

@@ -2,6 +2,7 @@ import { DataTypes, Model } from "sequelize";
 import { connection } from "../configs/connection.js";
 
 export default class Users extends Model {}
+
 Users.init(
   {
     id: {
@@ -20,11 +21,6 @@ Users.init(
     firstName: {
       type: DataTypes.STRING(100),
       allowNull: false,
-      unique: false,
-    },
-    lastName: {
-      type: DataTypes.STRING(100),
-      allowNull: true,
       unique: false,
     },
     email: {
@@ -47,7 +43,7 @@ Users.init(
   {
     sequelize: connection,
     tableName: "users",
-    underscored: true,
+    // underscored: true,
     indexes: [
       {
         fields: ["email"],

@@ -1,7 +1,8 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 import { connection } from "../configs/connection.js";
 
-export default class Address extends Model {}
+class Address extends Model {}
+
 Address.init(
   {
     id: {
@@ -32,7 +33,7 @@ Address.init(
       allowNull: true,
       unique: false,
     },
-    vilage: {
+    village: {
       type: DataTypes.STRING(100),
       allowNull: true,
       unique: false,
@@ -41,6 +42,8 @@ Address.init(
   {
     sequelize: connection,
     tableName: "addresses",
-    underscored: true,
+    // underscored: true,
   }
 );
+
+export default Address;

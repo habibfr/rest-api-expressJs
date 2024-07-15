@@ -10,5 +10,5 @@ privateRouts.use(authenticationMiddleware);
 privateRouts.post("/v1/addresses", UserController.createAddress);
 privateRouts.post("/v1/products", UserController.createProduct);
 privateRouts.post("/v1/transaction", UserController.transaction);
-privateRouts.get("/v1/transaction", UserController.findAllTransaction);
+privateRouts.get("/v1/transactions", UserController.findAllTransaction);
 export { privateRouts };

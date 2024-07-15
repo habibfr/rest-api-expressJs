@@ -31,7 +31,7 @@ Product.init(
   {
     tableName: "products",
     sequelize: connection,
-    underscored: true,
+    // underscored: true,
     indexes: [
       {
         fields: ["name"],

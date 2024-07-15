@@ -8,7 +8,7 @@ import ZodValidator from "../validations/validator.js";
 export default class UserService {
   /**
    * method create address merupakan method yang digunakan untuk membuat data address berdasarkan
-   * 
+   *
    * @param { Object } user data user
    * @param { Object } createAddressReq sebuah object request body yang mmeuat data-data yang dibutuhkan untuk memuad address
    * @returns Pomise<Object>
@@ -22,11 +22,13 @@ export default class UserService {
     // begin transaction
     const result = await connection.transaction(async (tr) => {
       try {
+        console.log("email user createAddress : " + user.email);
+
         // check is user exist
         const isUserExist = await getUserByEmail(user.email);
         // if user does not exist then will throw exception
         if (!isUserExist) {
-          throw new EmailOrPasswordException("Pleas login", 401);
+          throw new EmailOrPasswordException("Please login", 401);
         }
         // create new address
         return await Address.create(
@@ -43,7 +45,9 @@ export default class UserService {
             ],
           }
         );
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     });
     return result.toJSON();
   }

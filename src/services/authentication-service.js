@@ -19,6 +19,7 @@ export default class AuthenticationService {
    * @returns Promise<Object>
    */
   static async register(userRegisterRequest) {
+    // console.log(userRegisterRequest);
     // validate user
     const userLoginRequestValid = ZodValidator.validate(
       Uservalidartor.REGISTER,
@@ -92,7 +93,7 @@ export default class AuthenticationService {
    *
    * @param {Object} userRequest obejct request body yang yang memmuat data user dan data address
    * @returns Promise<Object>
-   * 
+   *
    */
   static async registerAndCreateAddress(userRequest) {
     // valiasi request

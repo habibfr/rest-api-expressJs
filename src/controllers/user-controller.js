@@ -5,9 +5,11 @@ import UserService from "../services/user-service.js";
 export default class UserController {
   static async register(request, response, nextFunction) {
     try {
+      // console.log(request.body);
       const result = await AuthenticationService.register(request.body);
       response.status(201).json({ ...result });
     } catch (error) {
+      // console.log(error);
       nextFunction(error);
     }
   }
@@ -45,6 +47,7 @@ export default class UserController {
       );
       response.status(201).json({ ...result });
     } catch (error) {
+      console.log(error);
       nextFunction(error);
     }
   }
@@ -56,12 +59,13 @@ export default class UserController {
       nextFuction(error);
     }
   }
-  static async findAllTransaction(request, response, nextFunction){
-    try{
+  static async findAllTransaction(request, response, nextFunction) {
+    try {
       const result = await TransactionService.findAllTransaction(request.user);
-      response.status(200).json([...result])
-    }catch(error) {
-      nextFunction(error)
+      response.status(200).json([...result]);
+    } catch (error) {
+      console.log(error);
+      nextFunction(error);
     }
   }
 }
