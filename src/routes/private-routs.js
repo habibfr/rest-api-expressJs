@@ -11,4 +11,6 @@ privateRouts.post("/v1/addresses", UserController.createAddress);
 privateRouts.post("/v1/products", UserController.createProduct);
 privateRouts.post("/v1/transaction", UserController.transaction);
 privateRouts.get("/v1/transactions", UserController.findAllTransaction);
+privateRouts.get("/v1/user", UserController.findUser);
+privateRouts.get("/v1/users", UserController.getAllUsers);
 export { privateRouts };

@@ -71,7 +71,7 @@ export default class TransactionService {
    */
   static async findAllTransaction() {
     return await connection.transaction(async (tr) => {
-      console.log(tr);
+      // console.log(tr);
       return await Transaction.findAll({}, { transaction: tr });
     });
   }

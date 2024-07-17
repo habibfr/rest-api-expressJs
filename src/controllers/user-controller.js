@@ -68,4 +68,22 @@ export default class UserController {
       nextFunction(error);
     }
   }
+  static async findUser(request, response, nextFunction) {
+    try {
+      const result = await UserService.findUser(request.user);
+      response.status(200).json(result);
+    } catch (error) {
+      console.log(error);
+      nextFunction(error);
+    }
+  }
+  static async getAllUsers(request, response, nextFunction) {
+    try {
+      const users = await UserService.getAllUsers();
+      response.status(200).json(users);
+    } catch (error) {
+      console.log(error);
+      nextFunction(error);
+    }
+  }
 }
