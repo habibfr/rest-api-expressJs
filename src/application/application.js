@@ -1,11 +1,13 @@
 import cookieParser from "cookie-parser";
 import express from "express";
+import cors from "cors";
 import "dotenv/config";
 import { errorMiddleware } from "../middlewares/error-middleware.js";
 import { privateRouts } from "../routes/private-routs.js";
 import { publicRouts } from "../routes/public-routs.js";
 const SECREET_KEY_COOKIE = process.env.SECREET_KEY_COOKIE;
 const application = express();
+application.use(cors());
 application.use(express.json());
 application.use(express.urlencoded({ extended: true }));
 application.use(cookieParser(SECREET_KEY_COOKIE));
